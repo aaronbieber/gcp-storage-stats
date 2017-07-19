@@ -1,0 +1,11 @@
+{
+  "production": {
+    "oauth_callback_url": "http://gcp.aaronbieber.com/auth/google/callback",
+    "memcached_servers": ["memcached-18019.c1.us-central1-2.gce.cloud.redislabs.com:18019"]
+  },
+
+  "development": {
+    "oauth_callback_url": "http://localhost:8080/auth/google/callback",
+    "memcached_servers": ["localhost:11211"]
+  }
+}

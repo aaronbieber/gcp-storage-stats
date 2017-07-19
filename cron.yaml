@@ -1,0 +1,5 @@
+cron:
+- description: "GCS summary job"
+  url: /storage/files?a=n3kfeli3nsl3ks
+  # Schedules are in GMT, FYI
+  schedule: every day 09:00

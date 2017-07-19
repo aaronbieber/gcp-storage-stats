@@ -30,8 +30,8 @@ const store = new MemcachedStore({
 app.use(session({
   secret: 'chinese whispers',
   store: store,
-  resave: true,
-  saveUninitialized: true
+  resave: false,
+  saveUninitialized: false
 }));
 app.use(passport.initialize());
 app.use(passport.session());

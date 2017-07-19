@@ -18,6 +18,7 @@ const app = express();
 app.engine('mustache', mustache());
 app.set('view engine', 'mustache');
 app.set('views', __dirname + '/views');
+app.use(express.static('public'));
 
 const session = require('express-session');
 const MemcachedStore = require('connect-memjs')(session);
@@ -102,10 +103,6 @@ app.get('/', (req, res) => {
   res.render('index', {user: user});
 });
 
-app.get('/storage', (req, res) => {
-
-});
-
 app.get('/storage/files', (req, res) => {
   if ('x-appengine-cron' in req.headers
       || (req.session.passport
@@ -124,6 +121,10 @@ app.get('/storage/files', (req, res) => {
   } else {
     res.status(401).send('<h1>Not Authorized</h1>');
   }
+});
+
+app.get('/storage/async', (req, res) => {
+  res.render('async');
 });
 
 // Start the server

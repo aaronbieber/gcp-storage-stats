@@ -1,8 +1,14 @@
-.PHONY: dev deploy
+.PHONY: dev deploy build decrypt
 
-dev:
+build:
+	yarn
+	gpg -c secrets.json && rm secrets.json
+
+decrypt:
+	gpg secrets.json.gpg
+
+dev: decrypt
 	yarn dev
 
-deploy:
-	gpg secrets.json.gpg
+deploy: decrypt
 	gcloud app deploy

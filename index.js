@@ -123,10 +123,6 @@ app.get('/storage/files', (req, res) => {
   }
 });
 
-app.get('/storage/async', (req, res) => {
-  res.render('async');
-});
-
 // Start the server
 const PORT = process.env.PORT || 8080;
 const server = app.listen(PORT, () => {

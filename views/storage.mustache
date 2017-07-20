@@ -1,0 +1,26 @@
+{{>header}}
+<div class="row">
+  <div class="col-lg-12 responsive-padding">
+    <table>
+      <tr>
+        <th>Bucket</th>
+        <th>Files</th>
+        <th>Size</th>
+      </tr>
+      {{#buckets}}
+        <tr>
+          <td class="data-label">{{name}}</td>
+          <td class="data-label">{{files}}</td>
+          <td class="data-label">{{size_h}}</td>
+        </tr>
+      {{/buckets}}
+
+      <tr>
+        <td style="border-top-width: 3px; text-align: right;">Totals</td>
+        <td style="border-top-width: 3px;">{{totals.files}}</td>
+        <td style="border-top-width: 3px;">{{totals.size}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+{{>footer}}

@@ -23,7 +23,13 @@ router.get('/files', (req, res) => {
 
       return data;
     }).then((data) => {
-      res.status(200).send(data);
+      res.render('storage',
+                 {
+                   totals: data.totals,
+                   buckets: data.buckets
+                 });
+
+      // res.status(200).send(data);
     }).catch((err) => {
       console.log(err);
       res.status(500).send(err);

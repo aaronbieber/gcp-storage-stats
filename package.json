@@ -4,6 +4,7 @@
   "description": "Count all of the files in GCS.",
   "main": "index.js",
   "scripts": {
+    "install": "mkdir -p node_modules && mv -f app_modules node_modules/app",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "NODE_ENV=production node index.js",
     "dev": "nodemon index.js"

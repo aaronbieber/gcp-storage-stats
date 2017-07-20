@@ -306,12 +306,12 @@ configstore@^3.0.0:
     write-file-atomic "^2.0.0"
     xdg-basedir "^3.0.0"
 
-connect-memjs@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/connect-memjs/-/connect-memjs-0.2.0.tgz#bc145295b723e3851b0eda7b9577f3eac871e49a"
+connect-memjs@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/connect-memjs/-/connect-memjs-0.2.1.tgz#83a9c8c22c75c07863caf37071dc10b91a219285"
   dependencies:
     debug "^2.6.3"
-    memjs ">= 0.9.0"
+    memjs ">= 1.0.0-rc.1"
 
 console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   version "1.1.0"
@@ -1208,9 +1208,9 @@ media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
 
-"memjs@>= 0.9.0":
-  version "0.10.2"
-  resolved "https://registry.yarnpkg.com/memjs/-/memjs-0.10.2.tgz#3c9efbc3dc480994eac72092bf9cde44bb51d4a3"
+"memjs@>= 1.0.0-rc.1":
+  version "1.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/memjs/-/memjs-1.0.0-rc.1.tgz#2f320f04f5de43118faa154c89a11407d7b53f71"
 
 merge-descriptors@1.0.1:
   version "1.0.1"

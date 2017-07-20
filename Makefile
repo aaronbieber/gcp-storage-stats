@@ -2,10 +2,10 @@
 
 build:
 	yarn
-	gpg -c secrets.json && rm secrets.json
+	gpg -c node_modules/app/secrets/secrets.json && rm node_modules/app/secrets/secrets.json
 
 decrypt:
-	gpg secrets.json.gpg
+	gpg node_modules/app/secrets/secrets.json.gpg
 
 dev: decrypt
 	yarn dev

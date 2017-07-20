@@ -1,3 +1,4 @@
 {
+  "ignoreRoot": [".git", "public"],
   "ext": "js,mustache"
 }

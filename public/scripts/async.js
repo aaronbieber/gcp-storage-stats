@@ -2,32 +2,17 @@ $(function() {
   console.log('ready');
 
   var last_response_len = false;
-  $.ajax('/storage/async', {
-    xhrFields: {
-      onprogress: function(e)
-      {
-        var this_response, response = e.currentTarget.response;
-        if(last_response_len === false)
-        {
-          this_response = response;
-          last_response_len = response.length;
-        }
-        else
-        {
-          this_response = response.substring(last_response_len);
-          last_response_len = response.length;
-        }
-        console.log(this_response);
-      }
-    }
-  })
-    .done(function(data)
-          {
-            console.log('Complete response = ' + data);
-          })
-    .fail(function(data)
-          {
-            console.log('Error: ', data);
-          });
-  console.log('Request Sent');
+  $.ajax('/storage/files', {dataType: 'json'})
+    .done((data) => {
+      console.log('Complete response = ' + data);
+      $.get('/templates/_storage_table.mustache',
+            function(template) {
+              var rendered = Mustache.render(template, data);
+              $('#js-data').html(rendered);
+            });
+    })
+    .fail((data) => {
+      console.log('Error: ', data);
+    });
+  console.log('Request sent');
 });

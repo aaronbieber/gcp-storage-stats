@@ -1,15 +1,22 @@
 {{>header}}
 <div class="row">
-  <div class="col-lg-4 col-md-2 col-sm-12"></div>
-  <div class="col-lg-4 col-md-8 col-sm-12">
-    <div class="card fluid">
-      <div class="section">
-        Stuff.
+  <div id="js-data" class="col-lg-12 responsive-padding">
+    <div class="center_outer">
+      <div class="center_middle">
+        <div class="center_inner">
+          <div style="text-align:center;">
+            <p>Traversing buckets...</p>
+            <div class="spinner-donut large"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="col-lg-4 col-md-2 col-sm-12"></div>
 </div>
+
+<script id="storage-table" type="x-tmpl-mustache">
+  {{>_storage_table}}
+</script>
 
 <script language="javascript" src="/scripts/async.js"></script>
 {{>footer}}

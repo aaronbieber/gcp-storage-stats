@@ -1,0 +1,15 @@
+.center_outer {
+    display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.center_middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.center_inner {
+    margin: 0 auto;
+}

@@ -8,7 +8,7 @@ const express = require('express');
 const app = express();
 app.engine('mustache', mustache());
 app.set('view engine', 'mustache');
-app.set('views', __dirname + '/views');
+app.set('views', __dirname + '/public/templates');
 app.use(express.static('public'));
 
 const session = require('express-session');

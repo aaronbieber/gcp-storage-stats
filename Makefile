@@ -1,4 +1,4 @@
-.PHONY: dev deploy build decrypt
+.PHONY: dev deploy build decrypt todo
 
 build:
 	yarn
@@ -11,7 +11,10 @@ decrypt:
 dev: decrypt
 	yarn dev
 
-deploy: decrypt
+todo:
+	! grep -Ri @todo index.js node_modules/app routes
+
+deploy: decrypt todo
 	cp -R node_modules/app app_modules
 	gcloud app deploy
 	rm -rf app_modules

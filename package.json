@@ -4,7 +4,7 @@
   "description": "Count all of the files in GCS.",
   "main": "index.js",
   "scripts": {
-    "install": "mkdir -p node_modules && mv -f app_modules node_modules/app",
+    "install": "stat app_modules && mkdir -p node_modules && mv -f app_modules node_modules/app",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "NODE_ENV=production node index.js",
     "dev": "nodemon index.js"
@@ -13,6 +13,7 @@
   "license": "UNLICENSED",
   "dependencies": {
     "@google-cloud/storage": "^1.2.0",
+    "app-root-path": "^2.0.1",
     "bluebird": "^3.5.0",
     "connect-memjs": "^0.2.1",
     "express": "^4.15.3",

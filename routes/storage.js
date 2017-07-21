@@ -1,3 +1,4 @@
+const config = require('app/config');
 const express = require('express');
 const router = express.Router();
 const storage = require('app/storage');
@@ -10,7 +11,15 @@ router.get('/async', (req, res) => {
 router.get('/files', (req, res) => {
   if ('x-appengine-cron' in req.headers
       || (req.session.passport
-          && req.session.passport.user)) {
+          && req.session.passport.user)
+      || config.env == 'development') {
+
+    var shouldSendMessage = false;
+    if ('x-appengine-cron' in req.headers
+        || ('sendSMS' in req.query
+            && req.query.sendSMS == 1)) {
+      shouldSendMessage = true;
+    }
 
     console.log('Starting the file traversal...');
     var startTime = moment(Date.now());
@@ -19,11 +28,13 @@ router.get('/files', (req, res) => {
       var duration = moment.duration(endTime.diff(startTime)).humanize();
       console.log('File traversal completed in ' + duration + '.');
 
-      storage.sendMessage(data)
-        .catch((err) => {
-          console.log(err);
-          res.status(500).send(err);
-        });
+      if (shouldSendMessage) {
+        storage.sendMessage(data)
+          .catch((err) => {
+            console.log(err);
+            res.status(500).send(err);
+          });
+      }
 
       return data;
     }).then((data) => {

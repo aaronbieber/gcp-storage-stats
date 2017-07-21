@@ -1,13 +1,24 @@
 {{>header}}
 <div class="row">
-  <div class="col-lg-4 col-md-2 col-sm-12"></div>
-  <div class="col-lg-4 col-md-8 col-sm-12">
+  <div class="col-lg-4 col-md-6 col-sm-12 col-md-offset-3 col-lg-offset-4">
     <div class="card fluid">
       <div class="section">
         {{#user}}
           <div style="text-align: center;">
             <p>Click below to run a storage analysis.</p>
-            <p><a href="/storage/async" class="button tertiary">Run storage analysis</a></p>
+            <form action="/storage/async" method="GET">
+            <div class="row">
+              <div class="col-sm-12">
+                <input type="submit" class="button tertiary" value="Run storage analysis" />
+              </div>
+              <div class="col-sm-12">
+                <div class="input-group">
+                  <input id="send-sms" name="sendSMS" type="checkbox" value="1" />
+                  <label for="send-sms">Send summary SMS</label>
+                </div>
+              </div>
+            </div>
+            </form>
           </div>
         {{/user}}
 
@@ -19,6 +30,5 @@
       </div>
     </div>
   </div>
-  <div class="col-lg-4 col-md-2 col-sm-12"></div>
 </div>
 {{>footer}}

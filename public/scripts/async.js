@@ -1,8 +1,14 @@
 $(function() {
-  console.log('ready');
+  var sendSMS = 0,
+      last_response_len = false;
 
-  var last_response_len = false;
-  $.ajax('/storage/files', {dataType: 'json'})
+  if (window.location.toString().match(/sendSMS=1/)) {
+    sendSMS = 1;
+  }
+  $.ajax('/storage/files', {
+    data: { sendSMS: sendSMS },
+    dataType: 'json'
+  })
     .done((data) => {
       console.log('Complete response = ' + data);
       $.get('/templates/_storage_table.mustache',
